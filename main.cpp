@@ -6,6 +6,7 @@
 #include "fastSine.h"
 
 #include <iostream>
+#include "Singleton/PerfAnalyzer.h"
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 
@@ -32,6 +33,9 @@ int main() {
     auto *f = new FastSine();
     f->TestSine();
     delete f;
+
+    PerfAnalyzer::getInstance().log();
+    PerfAnalyzer::getInstance().print();
 
 
     // glfw: initialize and configure

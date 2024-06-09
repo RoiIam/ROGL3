@@ -1,5 +1,4 @@
 #include "fastSine.h"
-
 #include <iostream>
 #include <chrono>
 #include<cmath>
