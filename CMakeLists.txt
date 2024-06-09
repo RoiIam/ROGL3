@@ -10,7 +10,6 @@ set(CMAKE_CXX_FLAGS -g)
 
 
 #packages
-# ...
 #find_package(stb)
 find_package(glm REQUIRED)
 find_package(glad)
@@ -25,9 +24,11 @@ find_package(assimp)
 
 add_executable(ROGL3 main.cpp)
 target_compile_options(ROGL3 PUBLIC -ggdb)
+
+set(CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR} ${CMAKE_MODULE_PATH})
 include_directories(Core)
-add_subdirectory("Core")
+add_subdirectory(Core)
 
 #
 # stb::stb
-target_link_libraries(ROGL3 PUBLIC glad::glad glfw glm::glm assimp::assimp imgui::imgui)
+target_link_libraries(ROGL3 glad::glad glfw glm::glm assimp::assimp imgui::imgui ROGL3_Core)
